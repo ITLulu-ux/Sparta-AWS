@@ -33,9 +33,9 @@
 | GET | /actuator/health | 서버 상태 확인 |
 
 ### 4. 배포 정보
-- EC2 Public IPv4: `여기에 실제 퍼블릭 IPv4 주소`
-- API Base URL: `http://퍼블릭IPv4:8080`
-- Health Check: `http://퍼블릭IPv4:8080/actuator/health`
+- EC2 Public IPv4: `43.201.60.199`
+- API Base URL: `http://43.201.60.199:8080`
+- Health Check: `http://43.201.60.199:8080/actuator/health`
 
 ### 5. 실행 프로파일
 - local: H2 Database
