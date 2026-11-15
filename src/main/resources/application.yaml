@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: Sparta-AWS
+  profiles:
+    active: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
