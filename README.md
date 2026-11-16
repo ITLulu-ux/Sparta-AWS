@@ -45,7 +45,7 @@
 
 ![[내일배움캠프] Lv.2.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.2.jpg)
 ### Actuator Info
-- URL: http://현재_EC2_퍼블릭_IP:8080/actuator/info
+- URL: http://13.124.234.198:8080/actuator/info
 
 ### 출력 결과
 ```json
