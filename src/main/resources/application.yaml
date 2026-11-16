@@ -4,8 +4,22 @@ spring:
   profiles:
     active: local
 
+
+  cloud:
+    aws:
+      region:
+        static: ap-northeast-2
+
 management:
   endpoints:
     web:
       exposure:
-        include: health
+        include: health, info
+
+  info:
+    env:
+      enabled: true
+
+info:
+  team:
+    name: Sparta-AWS

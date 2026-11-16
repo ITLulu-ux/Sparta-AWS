@@ -1,8 +1,8 @@
 spring:
+  config:
+    import: "aws-parameterstore:/commerce/db/?prefix=spring.datasource."
+
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -12,5 +12,4 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
     open-in-view: false
