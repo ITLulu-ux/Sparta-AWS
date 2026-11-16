@@ -13,3 +13,8 @@ spring:
       hibernate:
         format_sql: true
     open-in-view: false
+
+  app:
+    aws:
+      s3:
+        bucket: sparta-commerce-profile-2026

@@ -1,0 +1,25 @@
+### 회원 생성
+POST http://13.124.234.198:8080/api/members
+Content-Type: application/json
+
+{
+  "name": "테스트회원",
+  "age": 25,
+  "mbti": "INTJ"
+}
+
+
+### 프로필 이미지 업로드
+POST http://13.124.234.198:8080/api/members/1/profile-image
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="postman test.jpg"
+Content-Type: image/jpg
+
+< ./postman%20test.jpg
+--WebAppBoundary--
+
+
+### 프로필 이미지 URL 조회
+GET http://13.124.234.198:8080/api/members/1/profile-image

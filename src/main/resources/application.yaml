@@ -23,3 +23,8 @@ management:
 info:
   team:
     name: Sparta-AWS
+
+app:
+  aws:
+    s3:
+      bucket: sparta-commerce-profile-2026

@@ -32,6 +32,9 @@ dependencies {
     implementation platform('io.awspring.cloud:spring-cloud-aws-dependencies:4.1.1')
     implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
 
+    // AWS S3
+    implementation 'software.amazon.awssdk:s3'
+
     // Database
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'

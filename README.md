@@ -54,3 +54,31 @@
     "name": "Sparta-AWS"
   }
 }
+```
+
+
+## Lv.3 제출
+
+### S3 객체 업로드 화면
+![[내일배움캠프] Lv.3-1.png](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.3-1.png)
+
+### Presigned URL 접근 화면
+![[내일배움캠프] Lv.3-2.png](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.3-2.png)
+
+### IAM Role 접근 성공
+![[내일배움캠프] Lv.3-3.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.3-3.jpg)
+
+### URL 발급 시각과 만료 시각
+#### 발급 일시: 2026-11-16 16:02:31 (KST)
+
+#### 설정된 유효기간: 7일 (604,800초)
+
+#### 설정 기준 만료 일시: 2026-11-23 16:02:31 (KST)
+
+#### 생성 방식: AWS SDK for Java 2.x S3Presigner
+
+#### 인증 방식: EC2 IAM Role (commerce-api-ssm-role)
+
+#### .signatureDuration(Duration.ofDays(7))
+
+### ※ EC2 IAM Role의 임시 자격 증명이 먼저 만료되면 Presigned URL도 설정된 7일보다 일찍 만료될 수 있습니다.
