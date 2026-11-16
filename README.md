@@ -82,3 +82,13 @@
 #### .signatureDuration(Duration.ofDays(7))
 
 ### ※ EC2 IAM Role의 임시 자격 증명이 먼저 만료되면 Presigned URL도 설정된 7일보다 일찍 만료될 수 있습니다.
+
+## Lv.4 제출
+
+## Github Actions 성공
+![[내일배움캠프] Lv.4-1.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.4-1.jpg)
+
+![[내일배움캠프] Lv.4-2.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.4-2.jpg)
+
+## EC2 터미널
+![[내일배움캠프] Lv.4-3.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.4-3.jpg)
