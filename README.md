@@ -92,3 +92,10 @@
 
 ## EC2 터미널
 ![[내일배움캠프] Lv.4-3.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.4-3.jpg)
+
+
+## Lv.6
+
+## CloudFront 이미지 URL
+
+https://d3ghufnvr258ws.cloudfront.net/973b95c7-d777-42c3-b25a-f9d3266978ff.jpg
