@@ -102,6 +102,7 @@ https://api.conanquiz.com/actuator/health
 ### Target Group(대상 그룹) 이미지
 ![[내일배움캠프] Lv.5-2.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20Lv.5-2.jpg)
 
+### 도메인 연결은 Route 53 대신 기존 보유 도메인(가비아)의 DNS에서 api 서브도메인 CNAME 레코드로 ALB에 연결했습니다.
 
 ## Lv.6
 
