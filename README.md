@@ -109,3 +109,22 @@ https://api.conanquiz.com/actuator/health
 ## CloudFront 이미지 URL
 
 https://d3ghufnvr258ws.cloudfront.net/973b95c7-d777-42c3-b25a-f9d3266978ff.jpg
+
+## 추가)
+### 제출하고 실행된 에이타니의 피드백을 바탕으로 첨부
+
+### 1. SSL/TLS 인증서가 연결되어 HTTPS(443) 리스너가 구성
+![[내일배움캠프] HTTPS(443) 리스너.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20HTTPS%28443%29%20%EB%A6%AC%EC%8A%A4%EB%84%88.jpg)
+
+
+### 2. dockerfile이 존재하고, 해당 이미지를 컨테이너로 실행한 결과
+![[내일배움캠프] dockfile 존재와 실행결과.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20dockfile%20%EC%A1%B4%EC%9E%AC%EC%99%80%20%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC.jpg)
+
+### 실행 명령:
+- sudo docker ps
+
+### 실행 결과:
+- Image: luludocker2/sparta-aws:lv4
+- Status: Up 14 hours
+- Port: 8080:8080
+- Container: sparta-aws-container
