@@ -147,3 +147,82 @@ ALB의 HTTPS(443) 리스너에 ACM 인증서를 연결하고 HTTP(80) 요청은 
 - Status: Up 14 hours
 - Port: 8080:8080
 - Container: sparta-aws-container
+
+
+### 3. RDS 연결 구성 및 검증
+####  3-1. Spring Boot 운영 프로파일 설정
+
+운영 환경에서는 AWS Systems Manager Parameter Store를 이용해 데이터베이스 접속 정보를 외부에서 관리하도록 구성했습니다.
+
+`application-prod.yml`
+
+```yaml
+spring:
+  config:
+    import: "aws-parameterstore:/commerce/db/?prefix=spring.datasource."
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+```
+
+Parameter Store의 `/commerce/db/` 경로에 저장된 설정을 `spring.datasource.` 접두사로 매핑하여 Spring Boot의 데이터소스 설정에 적용합니다.
+
+#### 3-2. AWS Parameter Store 설정
+
+DB 접속 정보는 AWS Systems Manager Parameter Store에서 관리합니다.
+
+| Parameter Name | Type | 용도 |
+|---|---|---|
+| `/commerce/db/url` | String | RDS JDBC 접속 URL |
+| `/commerce/db/username` | String | DB 사용자 계정 |
+| `/commerce/db/password` | SecureString | DB 비밀번호 |
+
+DB 접속 URL은 다음과 같이 구성했습니다.
+
+```text
+jdbc:mysql://{RDS_ENDPOINT}:3306/commerce
+```
+
+실제 RDS 엔드포인트를 사용하며, 계정 및 비밀번호는 소스 코드에 직접 작성하지 않습니다.
+
+### 3-3. Docker 컨테이너에서 RDS 연결 검증
+
+실행 중인 EC2 인스턴스에서 Docker 컨테이너 로그를 확인하여 Spring Boot 애플리케이션의 RDS 연결 상태를 검증했습니다.
+
+**① Parameter Store 설정 로드**
+
+```text
+Loading property from AWS Parameter Store
+with name: /commerce/db/?prefix=spring.datasource.
+```
+
+**② HikariCP 연결 성공**
+
+```text
+HikariPool-1 - Starting...
+HikariPool-1 - Added connection
+HikariPool-1 - Start completed.
+```
+
+**③ 실제 데이터베이스 연결 정보**
+
+```text
+Database JDBC URL:
+jdbc:mysql://{RDS_ENDPOINT}:3306/commerce
+
+Database driver: MySQL Connector/J
+Database dialect: MySQLDialect
+```
+
+**④ Spring Boot 애플리케이션 실행 완료**
+
+```text
+Tomcat started on port 8080 (http)
+
+Started SpartaAwsApplication
+in 12.947 seconds
+```
+
+위 로그를 통해 Parameter Store에서 DB 접속 정보를 불러오고, HikariCP를 통해 RDS MySQL 연결을 확보한 뒤 Spring Boot 애플리케이션이 정상적으로 실행되는 것을 확인했습니다.
+
+**검증 결과:** 기존 EC2에서 Docker 컨테이너 기반 Spring Boot 애플리케이션과 AWS RDS 간의 연결이 정상적으로 이루어졌습니다.
