@@ -116,6 +116,25 @@ https://d3ghufnvr258ws.cloudfront.net/973b95c7-d777-42c3-b25a-f9d3266978ff.jpg
 ### 1. SSL/TLS 인증서가 연결되어 HTTPS(443) 리스너가 구성
 ![[내일배움캠프] HTTPS(443) 리스너.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20HTTPS%28443%29%20%EB%A6%AC%EC%8A%A4%EB%84%88.jpg)
 
+### ALB HTTPS 및 ACM 인증서 설정
+
+- **로드 밸런서:** `commerce-alb`
+- **리스너 프로토콜:** HTTPS
+- **리스너 포트:** 443
+- **연결된 ACM 인증서 도메인:** `api.conanquiz.com`
+- **기본 동작:** 대상 그룹으로 전달(Forward)
+- **대상 그룹:** `commerce-api-tg`
+
+HTTP 리스너 설정:
+- **프로토콜:** HTTP
+- **포트:** 80
+- **기본 동작:** HTTPS 443으로 리다이렉트(Redirect)
+
+HTTPS 접속 및 헬스 체크:
+- `https://api.conanquiz.com/actuator/health`
+
+ALB의 HTTPS(443) 리스너에 ACM 인증서를 연결하고 HTTP(80) 요청은 HTTPS(443)으로 리다이렉트하도록 구성했습니다.
+
 
 ### 2. dockerfile이 존재하고, 해당 이미지를 컨테이너로 실행한 결과
 ![[내일배움캠프] dockfile 존재와 실행결과.jpg](%5B%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84%5D%20dockfile%20%EC%A1%B4%EC%9E%AC%EC%99%80%20%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC.jpg)
